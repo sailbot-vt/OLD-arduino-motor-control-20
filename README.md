@@ -18,6 +18,7 @@ while (time < 2seconds) {
 }
 
 The reason for this is that if we only loop for certain positions:
+
 while (abs(position - desiredPosition) > 5) {
  
   calculatePID();
