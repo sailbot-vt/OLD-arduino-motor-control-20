@@ -1,6 +1,27 @@
 # arduino-motor-control
-A library for controlling various motors, stepper, encoded bldc, servo.
+@@@Actual library in the MotorLibraries branch, not the master branch@@@ 
+To do: 
 
-Library is a WIP. Stepper works fine PID works well. PID must be looped in the library, not from the void loop() for latency issues. Also PID must use a certain time constant relative to the motor speed, transients will push the motor off the correct value if only looped until a certain operating point. Some sort of time constant with respect to the maximum speed, voltage applied, and degrees requested must be found in order to make the motor run as efficiently as possible. Other than that the PID does settle within about 0 - 8 steps which is great and about as close as our motor will allow for fine tuning. 
+1. Clean up all the debugging Serial.print()'s. The ones in the PID must stay though because for some reason the algorithm likes the delay's that println() causes... something that needs to be looked into. 
 
-Still need to organize and clean up, include maestro control for servos, create abstract motor base class and then implement each type of motor into its own class. 
+2. The while loop for the PID control needs to run in a time based scenerio: 
+
+while (time < 2seconds) {
+
+  calculatePID();
+
+}
+
+The reason for this is that if we only loop for certain positions:
+while (abs(position - desiredPosition) > 5) {
+ 
+  calculatePID();
+
+}
+
+Like above the motor will stop short while the algorithm hasn't been tuned to stop that early. It'll stop looping as the motor overshoots and continues rotation, therefore we need a loop that halts once a certain amount of time has passed and we know that the motor has settled. See the actual loop SailbotEncodedBLDC.cpp for more information.
+A function for calculating the correct amount of time needs to be found, and this shouldn't be too hard of a task. Again, the block comment in the file has some ideas about how to go about this, but feel free to approach this problem as seen fit.
+
+The problem with this is that this is not good code and more importantly if the motor needs to rotate a large amount of degrees, the function will stop too short.
+
+3. See comments in the servo library. Feedback would be nice, and some code is wrong. 
