@@ -1,5 +1,6 @@
 # arduino-motor-control
-@@@Actual library in the MotorLibraries branch, not the master branch@@@ 
+Actual library in the MotorLibraries branch, not the master branch 
+
 To do: 
 
 1. Clean up all the debugging Serial.print()'s. The ones in the PID must stay though because for some reason the algorithm likes the delay's that println() causes... something that needs to be looked into. 
