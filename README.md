@@ -3,7 +3,9 @@ Code for controling motors like servos, steppers, and BLDC's using C++ on arduin
 
 
 Code in master branch is standard libraries needed to be included. 
-Actual library for motor control in the MotorLibraries branch, not the master branch 
+Actual library for motor control in the MotorLibraries branch, not the master branch
+
+See example schematic for wiring configuration. Pin assignments can change as needed, the schematic is just an example of things that work. However Vcc, GND etc must still remain. 
 
 To do: 
 
