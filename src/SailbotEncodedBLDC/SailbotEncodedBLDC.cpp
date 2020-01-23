@@ -7,7 +7,7 @@
  * power supply
  @param initialEncoderA - the first Encoder pin, must be interrupt enabled
  * for the arduino uno, use pin 2
- * @param initialEncoderB - the second Encoder pin, must be interrupt enabled
+ @param initialEncoderB - the second Encoder pin, must be interrupt enabled
  * for the arduino uno, use pin 3
  * Connect initialEncoderA to the 'A' pin of the motor, and initialEncoderB to
  * 'B'
