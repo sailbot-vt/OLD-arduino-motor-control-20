@@ -33,3 +33,4 @@ A function for calculating the correct amount of time needs to be found, and thi
 The problem with this is that this is not good code and more importantly if the motor needs to rotate a large amount of degrees, the function will stop too short.
 
 3. See comments in the servo library. Feedback would be nice, and some code is wrong. 
+  a. Are we getting new Servos? If so all of the new servos bought need to find minimum and maximum degrees.
